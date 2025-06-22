@@ -61,7 +61,7 @@ export default function Home() {
                 About me
               </Button>
               <Button variant={"outline"} className="w-fit m-4">
-                Check out my CV
+                Check out my CV 📄
               </Button>
             </div>
           </div>
@@ -73,8 +73,13 @@ export default function Home() {
           className="w-full min-h-screen flex items-center justify-center mx-24"
           id="about-me"
         >
-          <div className="w-full h-full flex items-center justify-center">
+          <div className="flex-col w-full h-full flex items-center justify-center">
             <h2 className="text-5xl font-bold">About Me</h2>
+            <p>
+              Hi there👋! My name is Bru Gladiador. Freshly graduated from a
+              Software Engineer degree, my objectives focus on building a
+              excellent profile.
+            </p>
           </div>
           <div className="w-full h-full flex items-center justify-center"></div>
         </div>
