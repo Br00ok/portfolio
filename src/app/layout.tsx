@@ -27,7 +27,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body className="min-h-screen w-full overflow-x-hidden flex flex-col relative">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -35,7 +35,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <main className="flex-1 flex items-center justify-center">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
