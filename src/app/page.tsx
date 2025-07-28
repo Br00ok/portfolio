@@ -110,17 +110,18 @@ export default function Home() {
               and functional web applications.
             </p>
 
-            <a href="#" className="btn btn-primary btn-gradient btn-lg">
+            <a href="#aboutme" className="btn btn-primary btn-gradient btn-lg">
               About me
               <span className="icon-[tabler--arrow-down] size-5 rtl:rotate-180"></span>
             </a>
           </div>
-
-          <img
-            src="https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/hero/hero-10.png"
-            alt="Dishes"
-            className="min-h-67 w-full object-cover"
-          />
+          <div id="aboutme" className="w-full h-screen bg-amber-400">
+            <div className="avatar">
+              <div className="size-16 rounded-md">
+                <img src="/profile_image.jpg" alt="Profile Image" />
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
