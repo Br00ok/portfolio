@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AboutMe from "./components/AboutMe";
 
 export default function Home() {
   return (
@@ -127,129 +128,15 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div
-            id="aboutme"
-            className="w-full h-fit bg-gray-200 flex flex-col md:flex-row items-center justify-center p-10"
-          >
-            {/* Texto About Me */}
-            <div className="w-1/2 md:w-1/2 h-fit text-gray-900 flex flex-col justify-center p-6 space-y-5">
-              <h2 className="text-3xl font-bold flex items-center gap-2">
-                👋 About Me
-              </h2>
-
-              <p className="text-base leading-snug">
-                Hi! I’m <span className="font-semibold">Bru Gladiador</span>, a{" "}
-                <span className="font-semibold">
-                  freshly graduated Junior Software Developer
-                </span>{" "}
-                with over <strong>1 year of professional experience</strong>{" "}
-                building scalable and reliable applications. I’m passionate
-                about clean architecture and writing code that lasts.
-              </p>
-
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold flex items-center gap-2">
-                  💻 Professional Experience
-                </h3>
-                <ul className="list-disc list-inside space-y-1 text-base">
-                  <li>
-                    Developed automated tests using <strong>PHP</strong> to
-                    ensure high-quality releases.
-                  </li>
-                  <li>
-                    Built backend services with <strong>Laravel</strong>{" "}
-                    focusing on scalable APIs.
-                  </li>
-                  <li>
-                    Worked in Quality Assurance to improve performance and
-                    usability.
-                  </li>
-                  <li>
-                    Contributed to mobile app development and UI with{" "}
-                    <strong>Ionic, Angular, Node.js</strong>.
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold flex items-center gap-2">
-                  📂 Personal Projects
-                </h3>
-                <ul className="list-disc list-inside space-y-1 text-base">
-                  <li>
-                    Created e-commerce websites using{" "}
-                    <strong>WordPress and WooCommerce</strong>.
-                  </li>
-                  <li>
-                    Developed applications with <strong>Node.js</strong> to
-                    deepen backend skills.
-                  </li>
-                  <li>
-                    Currently mastering <strong>React</strong> for dynamic
-                    frontends.
-                  </li>
-                  <li>
-                    Exploring backend frameworks like{" "}
-                    <strong>Spring Boot</strong> and <strong>Express.js</strong>
-                    .
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold flex items-center gap-2">
-                  🌍 Vision & Approach
-                </h3>
-                <p className="text-base leading-snug mt-2">
-                  Focused on growing as a well-rounded engineer tackling
-                  frontend, backend, web, and mobile. I build apps with solid
-                  design principles emphasizing maintainability and scalability.
-                </p>
-                <ul className="list-disc list-inside space-y-1 text-base mt-2">
-                  <li>Write clean, readable, efficient code.</li>
-                  <li>Prioritize scalable architecture.</li>
-                  <li>Continuously learn and adapt.</li>
-                </ul>
-              </div>
-
-              <p className="text-base italic font-semibold mt-5">
-                🚀 Always learning. Always building. Always improving.
-              </p>
-            </div>
-
-            {/* Avatar */}
-            <div className="w-1/2 flex justify-center items-center avatar mt-8 md:mt-0 md:ml-10">
-              <div className="size-100 rounded-4xl overflow-hidden shadow-lg">
-                <img
-                  src="/profile_image.jpg"
-                  alt="Profile Image"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
+          <AboutMe />
         </div>
       </main>
-      <footer>
-        <div className="bg-base-200 text-base-content/80 py-6 text-center">
-          <p className="text-sm">Designed and developed by Bru Gladiador</p>
-          <p className="text-xs mt-2">
-            Built with{" "}
-            <a
-              href="https://nextjs.org/"
-              className="text-primary hover:underline"
-            >
-              Next.js
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://tailwindcss.com/"
-              className="text-primary hover:underline"
-            >
-              Tailwind CSS
-            </a>
+      <footer className="footer footer-center bg-base-200/60 px-6 py-4">
+        <aside>
+          <p className="text-gray-600">
+            Designed and developed by Bru Gladiador
           </p>
-        </div>
+        </aside>
       </footer>
     </div>
   );
