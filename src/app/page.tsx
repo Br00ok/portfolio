@@ -52,10 +52,7 @@ export default function Home() {
               and functional web applications🚀
             </p>
             <div className="flex gap-4">
-              <a
-                href="#aboutme"
-                className="btn btn-primary btn-gradient btn-lg"
-              >
+              <a href="#aboutme" className="btn btn-outline btn-lg">
                 See more
                 <span className="icon-[tabler--arrow-down] size-5 rtl:rotate-180"></span>
               </a>
@@ -71,14 +68,13 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="footer bg-base-200/60 px-6 py-4">
+      <footer className="h-25 flex items-center footer bg-base-200/60 px-6 py-4">
         <div className="flex w-full flex-wrap items-center justify-between">
           <div className="flex items-center gap-2 text-xl font-bold text-base-content">
             <a
               className="text-base-content flex items-center gap-3 text-xl font-bold"
               href="/"
             >
-              <img src="logo.png" className="size-16" alt="brand-logo" />
               Bru Gladiador
             </a>
           </div>

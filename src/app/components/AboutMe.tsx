@@ -47,9 +47,9 @@ export default function AboutMe() {
                   problem-solving, I enjoy studying languages, such as Chinese,
                   to broaden my cultural and communication skills.
                 </p>
-                <div className="card-actions">
-                  <button className="btn btn-primary">Learn More</button>
-                </div>
+                {/* <div className="card-actions">
+                  <button className="btn btn-secondary">Learn More</button>
+                </div> */}
               </div>
             </div>
             <div className="flex justify-evenly items-center">
@@ -63,9 +63,9 @@ export default function AboutMe() {
                     application development, while building a strong foundation
                     in delivering reliable digital health solutions.
                   </p>
-                  <div className="card-actions">
-                    <button className="btn btn-primary">Learn More</button>
-                  </div>
+                  {/* <div className="card-actions">
+                    <button className="btn btn-secondary">Learn More</button>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -80,9 +80,9 @@ export default function AboutMe() {
                   websites and personal projects that strengthened both
                   technical expertise and practical implementation skills.
                 </p>
-                <div className="card-actions">
-                  <button className="btn btn-primary">Learn More</button>
-                </div>
+                {/* <div className="card-actions">
+                  <button className="btn btn-secondary">Learn More</button>
+                </div> */}
               </div>
             </div>
             <div className="flex justify-evenly items-center">
@@ -95,9 +95,9 @@ export default function AboutMe() {
                     meaningful applications, with a strong commitment to
                     creating solutions that deliver real value to users.
                   </p>
-                  <div className="card-actions">
-                    <button className="btn btn-primary">Learn More</button>
-                  </div>
+                  {/* <div className="card-actions">
+                    <button className="btn btn-secondary">Learn More</button>
+                  </div> */}
                 </div>
               </div>
             </div>

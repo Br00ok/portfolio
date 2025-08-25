@@ -1,34 +1,17 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const themes = [
-  "light",
-  "dark",
-  "black",
-  "corporate",
-  "ghibli",
-  "gourmet",
-  "luxury",
-  "pastel",
-  "soft",
-  "mintlify",
-  "spotify",
-  "valorant",
-  "vscode",
-  "perplexity",
-  "shadcn",
-  "claude",
-];
+const themes = ["black", "corporate"];
 
 export default function Header() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("black");
   const pathname = usePathname();
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
   return (
-    <header className="border-base-content/20 bg-base-100 fixed top-0 z-10 w-full border-b py-0.25">
+    <header className="h-25 border-base-content/20 bg-base-100 fixed top-0 z-10 w-full border-b py-0.25 flex items-center">
       <nav className="navbar mx-auto max-w-7xl rounded-b-xl px-4 sm:px-6 lg:px-8">
         <div className="w-full lg:flex lg:items-center lg:gap-2">
           <div className="navbar-start w-fit items-center justify-between">
@@ -36,9 +19,7 @@ export default function Header() {
               className="text-base-content flex items-center gap-3 text-xl font-bold"
               href="/"
             >
-              <img src="logo.png" className="size-16" alt="brand-logo" />
-
-              {pathname !== "/" && "Bru Gladiador"}
+              Bru Gladiador
             </a>
             <div className="flex items-center gap-5 lg:hidden">
               <a href="/" className="btn btn-primary">
@@ -70,9 +51,6 @@ export default function Header() {
               <a href="/projects" className="hover:text-primary">
                 Projects
               </a>
-              <a href="/contact" className="hover:text-primary">
-                Contact
-              </a>
             </div>
           </div>
           <div className="navbar-end w-fit flex gap-4 items-center">
@@ -90,7 +68,7 @@ export default function Header() {
             >
               {themes.map((t) => (
                 <option key={t} value={t}>
-                  {t.charAt(0).toUpperCase() + t.slice(1)}
+                  {t === "corporate" ? "Light" : "Dark"}
                 </option>
               ))}
             </select>
