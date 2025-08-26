@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="bg-base-100 scroll-smooth">
       <main className="min-h-screen scroll-smooth">
-        <div className="flex h-full flex-col justify-between gap-18 overflow-x-hidden pt-40 md:gap-24 md:pt-45 lg:gap-35 lg:pt-47.5">
+        <div className="flex h-full flex-col justify-between gap-18 overflow-x-hidden pt-40 md:gap-24 md:pt-45 lg:gap-25 lg:pt-47.5">
           <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 justify-self-center px-4 text-center sm:px-6 lg:px-8">
             <div className="bg-base-200 border-base-content/20 flex w-fit items-center gap-2.5 rounded-full border px-3 py-2">
               <span className="badge badge-primary shrink-0 rounded-full text-xl">
