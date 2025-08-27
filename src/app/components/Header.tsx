@@ -1,68 +1,160 @@
+"use client";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const themes = ["black", "corporate"];
 
 export default function Header() {
-  const [theme, setTheme] = useState("black");
+  const [theme, setTheme] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Recuperamos el tema de localStorage al montar
   useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "black";
+    setTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }, []);
+
+  // Cambiar tema dinámicamente
+  useEffect(() => {
+    if (!theme) return;
     document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
+
+  // Mientras no tenemos theme, no renderizamos nada
+  if (!theme) return null;
+
   return (
-    <header className="h-25 border-base-content/20 bg-base-100 fixed top-0 z-10 w-full border-b py-0.25 flex items-center">
-      <nav className="navbar mx-auto max-w-7xl rounded-b-xl px-4 sm:px-6 lg:px-8">
-        <div className="w-full lg:flex lg:items-center lg:gap-2">
-          <div className="navbar-start w-fit items-center justify-between">
-            <a
-              className="text-base-content flex items-center gap-3 text-xl font-bold"
-              href="/"
-            >
-              Bru Gladiador
-            </a>
-            <div className="flex items-center gap-5 lg:hidden">
-              <a href="/" className="btn btn-primary">
-                Login
-              </a>
-              <button
-                type="button"
-                className="collapse-toggle btn btn-outline btn-secondary btn-square"
-                data-collapse="#navbar-block-4"
-                aria-controls="navbar-block-4"
-                aria-label="Toggle navigation"
-              >
-                <span className="icon-[tabler--menu-2] collapse-open:hidden size-5.5"></span>
-                <span className="icon-[tabler--x] collapse-open:block hidden size-5.5"></span>
-              </button>
-            </div>
-          </div>
-          <div
-            id="navbar-block-4"
-            className="navbar-center transition-height collapse grow overflow-hidden font-medium duration-300 flex justify-center"
+    <header className="h-20 md:h-25 border-base-content/20 bg-base-100 fixed top-0 z-20 w-full border-b">
+      <nav className="navbar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
+        <div className="flex items-center justify-between w-full md:w-fit">
+          <a
+            className="text-base-content flex items-center gap-2 text-lg sm:text-xl font-bold"
+            href="/"
           >
-            <div className="text-base-content flex gap-6 text-base max-lg:mt-4 max-lg:flex-col lg:items-center">
-              <a href="/" className="hover:text-primary">
-                Home
-              </a>
-              <a href="/experience" className="hover:text-primary">
-                Experience
-              </a>
-              <a href="/projects" className="hover:text-primary">
-                Projects
-              </a>
-            </div>
-          </div>
-          <div className="navbar-end w-fit flex gap-4 items-center">
+            Bru Gladiador
+          </a>
+
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden p-2 text-base-content"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <span className="icon-[tabler--x] size-6"></span>
+            ) : (
+              <span className="icon-[tabler--menu-2] size-6"></span>
+            )}
+          </button>
+        </div>
+
+        {/* Desktop Links */}
+        <div className="hidden md:flex md:items-center md:gap-6 font-medium text-base-content">
+          <a
+            href="/"
+            className={
+              pathname === "/"
+                ? "text-primary font-semibold"
+                : "hover:text-primary"
+            }
+          >
+            Home
+          </a>
+          <a
+            href="/experience"
+            className={
+              pathname === "/experience"
+                ? "text-primary font-semibold"
+                : "hover:text-primary"
+            }
+          >
+            Experience
+          </a>
+          <a
+            href="/projects"
+            className={
+              pathname === "/projects"
+                ? "text-primary font-semibold"
+                : "hover:text-primary"
+            }
+          >
+            Projects
+          </a>
+        </div>
+
+        {/* Theme Selector */}
+        <div className="hidden md:flex items-center gap-2">
+          <label
+            htmlFor="theme-dropdown"
+            className="font-medium text-base text-base-content"
+          >
+            Theme:
+          </label>
+          <select
+            id="theme-dropdown"
+            className="select select-bordered select-sm"
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+          >
+            {themes.map((t) => (
+              <option key={t} value={t}>
+                {t === "corporate" ? "Light" : "Dark"}
+              </option>
+            ))}
+          </select>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-base-100 border-t border-base-content/20 px-4 py-3 flex flex-col gap-3 font-medium text-base-content">
+          <a
+            href="/"
+            className={
+              pathname === "/"
+                ? "text-primary font-semibold"
+                : "hover:text-primary"
+            }
+            onClick={() => setMenuOpen(false)}
+          >
+            Home
+          </a>
+          <a
+            href="/experience"
+            className={
+              pathname === "/experience"
+                ? "text-primary font-semibold"
+                : "hover:text-primary"
+            }
+            onClick={() => setMenuOpen(false)}
+          >
+            Experience
+          </a>
+          <a
+            href="/projects"
+            className={
+              pathname === "/projects"
+                ? "text-primary font-semibold"
+                : "hover:text-primary"
+            }
+            onClick={() => setMenuOpen(false)}
+          >
+            Projects
+          </a>
+
+          {/* Mobile Theme Selector */}
+          <div className="flex items-center gap-2 pt-2 border-t border-base-content/20">
             <label
-              htmlFor="theme-dropdown"
-              className="font-medium text-base-content"
+              htmlFor="theme-dropdown-mobile"
+              className="font-medium text-sm"
             >
               Theme:
             </label>
             <select
-              id="theme-dropdown"
-              className="select select-bordered"
+              id="theme-dropdown-mobile"
+              className="select select-bordered select-sm"
               value={theme}
               onChange={(e) => setTheme(e.target.value)}
             >
@@ -74,7 +166,7 @@ export default function Header() {
             </select>
           </div>
         </div>
-      </nav>
+      )}
     </header>
   );
 }

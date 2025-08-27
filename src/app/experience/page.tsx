@@ -1,15 +1,65 @@
-// experience page in Next.js with TypeScript and Tailwind CSS with the timeline component from FlyonUI
-import React from "react";
+"use client";
 
-export default function ExperiencePage() {
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
+export default function Experience() {
+  const router = useRouter();
+
   return (
-    <div className="bg-base-100 min-h-screen p-4">
-      <h1 className="text-3xl font-bold mb-6">Experience</h1>
-      <p className="text-lg mb-4">
-        This is the experience page where you can find information about my
-        professional journey.
-      </p>
-      {/* Add your timeline component or other content here */}
+    <div className="min-h-screen flex flex-col items-center justify-center bg-base-100 px-6 text-center gap-6 pt-28 md:pt-32 pb-16">
+      {/* Icono grande */}
+      <motion.div
+        className="text-primary/60"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <span className="icon-[tabler--tools] size-[150px]"></span>
+      </motion.div>
+
+      {/* Contenedor de texto */}
+      <motion.div
+        className="max-w-3xl p-12 bg-base-200 rounded-2xl shadow-lg flex flex-col gap-6"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <h1 className="text-5xl md:text-7xl font-bold text-base-content mb-4">
+          Professional Experience
+        </h1>
+        <p className="text-xl md:text-2xl text-base-content/80 mb-3">
+          This page is currently under construction. 🚧
+        </p>
+        <p className="text-lg md:text-xl text-base-content/70 mb-6">
+          More information about professional roles and responsibilities will be
+          added here in the future. The goal of this page is to provide a clear
+          overview of relevant experience in software development as soon as it
+          becomes available.
+        </p>
+
+        {/* Botones */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          {/* Botón animado Back to Home */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => router.push("/")}
+            className="btn btn-outline btn-md sm:btn-lg"
+          >
+            Back to Home
+          </motion.button>
+
+          <a
+            href="https://linkedin.com/in/brugladiadorllorella"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-md sm:btn-lg btn-gradient [--btn-color:#0a66c2] text-white"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </motion.div>
     </div>
   );
 }

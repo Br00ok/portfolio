@@ -30,3 +30,12 @@ body {
   color: var(--foreground);
   font-family: "Inter";
 }
+
+/* Fijar un fondo inicial mientras React hidrata */
+html {
+  background-color: #1f1f2e; /* dark por defecto */
+}
+
+[data-theme="corporate"] {
+  background-color: #e0f2ff; /* azul claro suave */
+}
