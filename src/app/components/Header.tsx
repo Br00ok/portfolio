@@ -63,6 +63,16 @@ export default function Header() {
             Home
           </a>
           <a
+            href="/skills"
+            className={
+              pathname === "/skills"
+                ? "text-primary font-semibold"
+                : "hover:text-primary"
+            }
+          >
+            Skills
+          </a>
+          <a
             href="/experience"
             className={
               pathname === "/experience"
@@ -120,6 +130,17 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
           >
             Home
+          </a>
+          <a
+            href="/skills"
+            className={
+              pathname === "/skills"
+                ? "text-primary font-semibold"
+                : "hover:text-primary"
+            }
+            onClick={() => setMenuOpen(false)}
+          >
+            Skills
           </a>
           <a
             href="/experience"
