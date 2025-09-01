@@ -9,26 +9,26 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Recuperamos el tema de localStorage al montar
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "black";
     setTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
 
-  // Cambiar tema dinámicamente
   useEffect(() => {
     if (!theme) return;
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Mientras no tenemos theme, no renderizamos nada
   if (!theme) return null;
 
   return (
-    <header className="h-20 md:h-25 border-base-content/20 bg-base-100 fixed top-0 z-20 w-full border-b">
-      <nav className="navbar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
+    <header
+      className="h-20 md:h-25 border-base-content/20 fixed top-0 z-20 w-full border-b
+    bg-base-100/70 backdrop-blur-md transition-colors"
+    >
+      <nav className="navbar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full bg-transparent">
         <div className="flex items-center justify-between w-full md:w-fit">
           <a
             className="text-base-content flex items-center gap-2 text-lg sm:text-xl font-bold"

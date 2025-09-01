@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer
       className="h-auto md:h-25 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 footer px-6 py-6
-      bg-base-100 dark:bg-base-100/80 transition-colors duration-300"
+      bg-base-100 dark:bg-base-100 transition-colors duration-300"
     >
       <div className="flex items-center gap-2 text-lg md:text-xl font-bold text-base-content">
         <a

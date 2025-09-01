@@ -8,7 +8,6 @@ export default function Projects() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-base-100 px-6 text-center gap-6 pt-28 md:pt-32 pb-16">
-      {/* Icono grande */}
       <motion.div
         className="text-primary/60"
         initial={{ opacity: 0, scale: 0.5 }}
@@ -18,7 +17,6 @@ export default function Projects() {
         <span className="icon-[tabler--code] size-[150px]"></span>
       </motion.div>
 
-      {/* Contenedor de texto */}
       <motion.div
         className="max-w-3xl p-12 bg-base-200 rounded-2xl shadow-lg flex flex-col gap-6"
         initial={{ opacity: 0, y: 50 }}
@@ -38,9 +36,7 @@ export default function Projects() {
           technical contributions outside of formal professional experience.
         </p>
 
-        {/* Botones */}
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          {/* Botón animado Back to Home */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

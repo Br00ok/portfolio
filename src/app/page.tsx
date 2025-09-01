@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import AboutMe from "./components/AboutMe";
 
 export default function Home() {
-  // Variants para animación de staggered children
   const containerVariants = {
     hidden: {},
     visible: {
@@ -41,7 +40,7 @@ export default function Home() {
                 Full-Stack
               </span>
               <span className="text-base-content/80 text-lg md:text-2xl">
-                Software Developer
+                Software Engineer
               </span>
             </motion.div>
 
@@ -87,7 +86,7 @@ export default function Home() {
               variants={itemVariants}
             >
               A design-oriented developer with a passion for creating beautiful
-              and functional web applications 🚀
+              and functional software 🚀
             </motion.p>
 
             {/* Buttons */}
@@ -116,7 +115,6 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* ABOUT ME con animación staggered */}
           <motion.div
             initial="hidden"
             whileInView="visible"

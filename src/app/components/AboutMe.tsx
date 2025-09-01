@@ -3,13 +3,11 @@
 import { motion } from "framer-motion";
 
 export default function AboutMe() {
-  // Variants para cada card y el mockup
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  // Variants para contenedor que hace stagger
   const containerVariants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.2 } },
@@ -66,7 +64,6 @@ export default function AboutMe() {
           className="flex flex-col gap-6 lg:gap-12"
           variants={containerVariants}
         >
-          {/* ROW 1 */}
           <div className="flex flex-col md:flex-row gap-6">
             <motion.div
               className="card sm:max-w-sm w-full"
@@ -104,7 +101,6 @@ export default function AboutMe() {
             </motion.div>
           </div>
 
-          {/* ROW 2 */}
           <div className="flex flex-col md:flex-row gap-6">
             <motion.div
               className="card sm:max-w-sm w-full"
@@ -132,10 +128,11 @@ export default function AboutMe() {
                   Objectives📈
                 </h5>
                 <p className="text-sm md:text-base">
-                  Driven by the goal of continuously learning and contributing
-                  to engaging projects that focus on building impactful and
-                  meaningful applications, with a strong commitment to creating
-                  solutions that deliver real value to users.
+                  I am driven by the goal of continuously learning and
+                  contributing to engaging projects that focus on building
+                  impactful and meaningful applications, with a strong
+                  commitment to creating solutions that deliver real value to
+                  users.
                 </p>
               </div>
             </motion.div>
