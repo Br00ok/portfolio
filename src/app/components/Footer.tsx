@@ -1,6 +1,8 @@
 // app/components/Footer.tsx
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer
@@ -8,33 +10,33 @@ export default function Footer() {
       bg-base-100 dark:bg-base-100 transition-colors duration-300"
     >
       <div className="flex items-center gap-2 text-lg md:text-xl font-bold text-base-content">
-        <a
+        <Link
           className="text-base-content flex items-center gap-2 text-lg md:text-xl font-bold"
           href="/"
         >
           Bru Gladiador
-        </a>
+        </Link>
       </div>
       <aside className="text-center md:text-left">
         <p className="text-base-content/80 text-sm">
           ©2025 |{" "}
-          <a className="link link-hover font-medium" href="/">
+          <Link className="link link-hover font-medium" href="/">
             Bru Gladiador
-          </a>
+          </Link>
         </p>
       </aside>
       <div className="flex gap-4">
-        {/* <a href="#" className="link" aria-label="Github Link">
+        {/* <Link href="#" className="link" aria-label="Github Link">
           <span className="icon-[tabler--brand-github] size-5"></span>
-        </a> */}
-        <a
+        </Link> */}
+        <Link
           href="https://linkedin.com/in/brugladiadorllorella"
           target="_blank"
           className="link"
           aria-label="LinkedIn Link"
         >
           <span className="icon-[tabler--brand-linkedin] size-5"></span>
-        </a>
+        </Link>
       </div>
     </footer>
   );

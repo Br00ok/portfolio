@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AboutMe() {
   const itemVariants = {
@@ -33,10 +34,12 @@ export default function AboutMe() {
               <div className="h-fit pt-10 pb-6 px-6 md:px-10 grid place-content-center">
                 <div className="card group hover:shadow-sm sm:max-w-sm">
                   <figure>
-                    <img
-                      src="profile_image.jpg"
+                    <Image
+                      width={400}
+                      height={400}
+                      src="/profile_image.jpg"
                       alt="profile image"
-                      className="transition-transform duration-500 group-hover:scale-110"
+                      className="transition-transform duration-500"
                     />
                   </figure>
                   <div className="card-body space-y-3">

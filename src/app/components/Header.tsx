@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const themes = ["black", "corporate"];
 
@@ -30,12 +31,12 @@ export default function Header() {
     >
       <nav className="navbar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full bg-transparent">
         <div className="flex items-center justify-between w-full md:w-fit">
-          <a
+          <Link
             className="text-base-content flex items-center gap-2 text-lg sm:text-xl font-bold"
             href="/"
           >
             Bru Gladiador
-          </a>
+          </Link>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -52,7 +53,7 @@ export default function Header() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex md:items-center md:gap-6 font-medium text-base-content">
-          <a
+          <Link
             href="/"
             className={
               pathname === "/"
@@ -61,8 +62,8 @@ export default function Header() {
             }
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/skills"
             className={
               pathname === "/skills"
@@ -71,8 +72,8 @@ export default function Header() {
             }
           >
             Skills
-          </a>
-          <a
+          </Link>
+          <Link
             href="/experience"
             className={
               pathname === "/experience"
@@ -81,8 +82,8 @@ export default function Header() {
             }
           >
             Experience
-          </a>
-          <a
+          </Link>
+          <Link
             href="/projects"
             className={
               pathname === "/projects"
@@ -91,7 +92,7 @@ export default function Header() {
             }
           >
             Projects
-          </a>
+          </Link>
         </div>
 
         {/* Theme Selector */}
@@ -120,7 +121,7 @@ export default function Header() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-base-100 border-t border-base-content/20 px-4 py-3 flex flex-col gap-3 font-medium text-base-content">
-          <a
+          <Link
             href="/"
             className={
               pathname === "/"
@@ -130,8 +131,8 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/skills"
             className={
               pathname === "/skills"
@@ -141,8 +142,8 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
           >
             Skills
-          </a>
-          <a
+          </Link>
+          <Link
             href="/experience"
             className={
               pathname === "/experience"
@@ -152,8 +153,8 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
           >
             Experience
-          </a>
-          <a
+          </Link>
+          <Link
             href="/projects"
             className={
               pathname === "/projects"
@@ -163,7 +164,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
           >
             Projects
-          </a>
+          </Link>
 
           {/* Mobile Theme Selector */}
           <div className="flex items-center gap-2 pt-2 border-t border-base-content/20">

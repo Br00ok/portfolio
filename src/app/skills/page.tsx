@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 function SkillCard({
   icon,
   title,
@@ -112,14 +114,14 @@ export default function Skills() {
         hands-on personal projects over the years.
       </p>
       <div className="flex justify-center mb-6">
-        <a href="#hardskills">
+        <Link href="#hardskills">
           <button
             className="animate-bounce text-primary text-3xl rounded-full bg-primary/10 px-4 py-2 shadow-md transition-all hover:scale-110 hover:bg-primary/30 focus:outline-none"
             aria-label="Scroll down"
           >
             ↓
           </button>
-        </a>
+        </Link>
       </div>
 
       <div

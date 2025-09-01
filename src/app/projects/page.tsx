@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function Projects() {
@@ -46,14 +47,14 @@ export default function Projects() {
             Back to Home
           </motion.button>
 
-          <a
+          <Link
             href="https://linkedin.com/in/brugladiadorllorella"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-md sm:btn-lg btn-gradient [--btn-color:#0a66c2] text-white"
           >
             LinkedIn
-          </a>
+          </Link>
         </div>
       </motion.div>
     </div>
