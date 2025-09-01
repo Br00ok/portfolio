@@ -37,7 +37,7 @@ export default function Skills() {
         "Tailwind CSS / Material UI +",
         "TypeScript / JavaScript",
         "HTML5 / CSS3",
-        "WordPress",
+        "WordPress / WooCommerce",
       ],
     },
     {
@@ -47,8 +47,8 @@ export default function Skills() {
       title: "Backend",
       items: [
         "Node.js / Express",
-        "Spring Boot / Java",
-        "Laravel / PHP",
+        "Java / Spring Boot",
+        "PHP / Laravel",
         "REST APIs & GraphQL",
         "Authentication & Security",
         "Socket.io / Real-time",
@@ -97,13 +97,7 @@ export default function Skills() {
         <span className="icon-[tabler--chart-bubble] text-pink-500 text-5xl mb-2"></span>
       ),
       title: "Software Engineering",
-      items: [
-        "UML",
-        "Entity-Relationship Diagrams",
-        "System Architecture Design",
-        "draw.io / Figma",
-        "Requirements Analysis",
-      ],
+      items: ["Software Architecture Patterns", "Requirements Analysis", "UML"],
     },
   ];
 
@@ -118,10 +112,20 @@ export default function Skills() {
         hands-on personal projects over the years.
       </p>
       <div className="flex justify-center mb-6">
-        <span className="animate-bounce text-primary text-3xl">↓</span>
+        <a href="#hardskills">
+          <button
+            className="animate-bounce text-primary text-3xl rounded-full bg-primary/10 px-4 py-2 shadow-md transition-all hover:scale-110 hover:bg-primary/30 focus:outline-none"
+            aria-label="Scroll down"
+          >
+            ↓
+          </button>
+        </a>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl">
+      <div
+        id="hardskills"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl scroll-mt-30"
+      >
         {skills.map((skill, idx) => (
           <SkillCard key={idx} {...skill} />
         ))}
@@ -138,10 +142,10 @@ export default function Skills() {
                 Communication
               </li>
               <li className="badge badge-outline badge-lg px-4 py-2">
-                Teamwork
+                Attention to Detail
               </li>
               <li className="badge badge-outline badge-lg px-4 py-2">
-                Adaptability
+                Teamwork
               </li>
               <li className="badge badge-outline badge-lg px-4 py-2">
                 Problem Solving
@@ -150,16 +154,13 @@ export default function Skills() {
                 Curiosity
               </li>
               <li className="badge badge-outline badge-lg px-4 py-2">
+                Adaptability
+              </li>
+              <li className="badge badge-outline badge-lg px-4 py-2">
                 Responsibility
               </li>
               <li className="badge badge-outline badge-lg px-4 py-2">
                 Time Management
-              </li>
-              <li className="badge badge-outline badge-lg px-4 py-2">
-                Attention to Detail
-              </li>
-              <li className="badge badge-outline badge-lg px-4 py-2">
-                Growth Mindset
               </li>
             </ul>
           </div>

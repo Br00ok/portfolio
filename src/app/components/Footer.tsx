@@ -24,11 +24,12 @@ export default function Footer() {
         </p>
       </aside>
       <div className="flex gap-4">
-        <a href="#" className="link" aria-label="Github Link">
+        {/* <a href="#" className="link" aria-label="Github Link">
           <span className="icon-[tabler--brand-github] size-5"></span>
-        </a>
+        </a> */}
         <a
           href="https://linkedin.com/in/brugladiadorllorella"
+          target="_blank"
           className="link"
           aria-label="LinkedIn Link"
         >
