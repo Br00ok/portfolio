@@ -25,11 +25,73 @@ export default function Header() {
   if (!theme) return null;
 
   return (
-    <header
-      className="h-20 md:h-25 border-base-content/20 fixed top-0 z-20 w-full border-b
-    bg-base-100/70 backdrop-blur-md transition-colors"
-    >
-      <nav className="navbar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full bg-transparent">
+    <header className="fixed flex justify-center items-center h-screen z-20 ml-25">
+      <div className="h-full w-fit grid grid-cols-1 grid-rows-8 gap-4">
+        <div className="text-4xl font-extrabold flex justify-start items-center row-span-2">
+          {
+            // <span>
+            //   Bru
+            //   <br />
+            //   Gladiador
+            // </span>
+          }
+        </div>
+        <div className="flex justify-start row-span-4 row-start-3">
+          <div className="flex-col flex justify-center gap-8 text-3xl">
+            <Link
+              href="/"
+              className={
+                pathname === "/"
+                  ? "text-primary font-semibold"
+                  : "hover:text-primary"
+              }
+            >
+              Home
+            </Link>
+            <Link
+              href="/skills"
+              className={
+                pathname === "/skills"
+                  ? "text-primary font-semibold"
+                  : "hover:text-primary"
+              }
+            >
+              Skills
+            </Link>
+            <Link
+              href="/experience"
+              className={
+                pathname === "/experience"
+                  ? "text-primary font-semibold"
+                  : "hover:text-primary"
+              }
+            >
+              Experience
+            </Link>
+            <Link
+              href="/projects"
+              className={
+                pathname === "/projects"
+                  ? "text-primary font-semibold"
+                  : "hover:text-primary"
+              }
+            >
+              Projects
+            </Link>
+          </div>
+        </div>
+        <div className="flex items-center justify-start row-start-8">
+          <Link
+            href="https://linkedin.com/in/brugladiadorllorella"
+            target="_blank"
+            className="link"
+            aria-label="LinkedIn Link"
+          >
+            <span className="icon-[tabler--brand-linkedin] size-10"></span>
+          </Link>{" "}
+        </div>
+      </div>
+      {/* <nav className="navbar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
         <div className="flex items-center justify-between w-full md:w-fit">
           <Link
             className="text-base-content flex items-center gap-2 text-lg sm:text-xl font-bold"
@@ -52,7 +114,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex md:items-center md:gap-6 font-medium text-base-content">
+      {/* <div className="hidden md:flex md:items-center md:gap-6 font-medium text-base-content">
           <Link
             href="/"
             className={
@@ -93,10 +155,10 @@ export default function Header() {
           >
             Projects
           </Link>
-        </div>
+        </div> */}
 
-        {/* Theme Selector */}
-        <div className="hidden md:flex items-center gap-2">
+      {/* Theme Selector */}
+      {/* <div className="hidden md:flex items-center gap-2">
           <label
             htmlFor="theme-dropdown"
             className="font-medium text-base text-base-content"
@@ -116,10 +178,10 @@ export default function Header() {
             ))}
           </select>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Mobile Menu */}
-      {menuOpen && (
+      {/* {menuOpen && (
         <div className="md:hidden bg-base-100 border-t border-base-content/20 px-4 py-3 flex flex-col gap-3 font-medium text-base-content">
           <Link
             href="/"
@@ -167,7 +229,7 @@ export default function Header() {
           </Link>
 
           {/* Mobile Theme Selector */}
-          <div className="flex items-center gap-2 pt-2 border-t border-base-content/20">
+      {/* <div className="flex items-center gap-2 pt-2 border-t border-base-content/20">
             <label
               htmlFor="theme-dropdown-mobile"
               className="font-medium text-sm"
@@ -186,9 +248,9 @@ export default function Header() {
                 </option>
               ))}
             </select>
-          </div>
-        </div>
-      )}
+          </div> 
+        </div> */}
+      {/* )}  */}
     </header>
   );
 }

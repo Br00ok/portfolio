@@ -1,11 +1,18 @@
 @import "tailwindcss";
 @plugin "flyonui" {
-  themes: all;
+  themes: black, corporate;
 }
 @import "flyonui/variants.css";
 @source "./node_modules/flyonui/flyonui.js";
 @plugin "@iconify/tailwind4";
+@plugin "flyonui/theme" {
+  name: "black";
+  default: true;
 
+  --color-primary: #ffffff;
+  --color-accent: #d30c7b;
+  --color-base-100: #050609;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -28,7 +35,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter";
+  font-family: "Lexend", sans-serif;
 }
 
 html {

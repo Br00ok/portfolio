@@ -32,17 +32,16 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></link>
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
           rel="stylesheet"
         ></link>
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
-        style={{ backgroundColor: "var(--flyonui-base-100, #1f1f2e)" }} // fondo dark por defecto
-      >
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="antialiased flex min-h-screen">
+        <div className="w-1/8 bg-base-100">
+          <Header />
+        </div>
+        <main className="w-7/8">{children}</main>
+        {/* <Footer /> */}
         <FlyonuiScript />
       </body>
     </html>

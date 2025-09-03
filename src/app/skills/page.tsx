@@ -109,9 +109,9 @@ export default function Skills() {
         My Skills
       </h1>
       <p className="text-base-content/80 max-w-4xl text-lg md:text-xl mb-10 text-center">
-        A comprehensive set of skills that I have carefully developed and
-        refined through my academic studies, professional work experience, and
-        hands-on personal projects over the years.
+        A comprehensive set of skills that I have carefully developed through my
+        academic studies, professional work experience, and hands-on personal
+        projects over the years.
       </p>
       <div className="flex justify-center mb-6">
         <Link href="#hardskills">

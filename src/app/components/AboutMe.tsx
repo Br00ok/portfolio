@@ -15,54 +15,48 @@ export default function AboutMe() {
   };
 
   return (
-    <div id="aboutme" className="scroll-mt-28 md:scroll-mt-22">
+    <div
+      id="aboutme"
+      className="w-full flex items-center justify-center h-2/5 bg-base-100"
+    >
       <motion.div
-        className="w-full h-fit px-6 md:px-16 py-12 flex flex-col lg:flex-row items-center justify-center gap-12 bg-base-200"
+        className="w-full h-full px-6 md:px-16 py-12 flex flex-col lg:flex-row items-center justify-center gap-12 bg-base-100"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
-        {/* PHONE MOCKUP */}
         <motion.div
-          className="w-full lg:w-fit flex justify-center"
+          className="w-full lg:w-fit h-full flex justify-center"
           variants={itemVariants}
         >
-          <div className="mockup-phone">
-            <div className="mockup-phone-camera bg-base-content/60 ring-2 ring-base-100/50 shadow-md shadow-black/40"></div>
-            <div className="mockup-phone-display bg-base-100/80">
-              <div className="h-fit pt-10 pb-6 px-6 md:px-10 grid place-content-center">
-                <div className="card group hover:shadow-sm sm:max-w-sm">
-                  <figure>
-                    <Image
-                      width={400}
-                      height={400}
-                      src="/profile_image.jpg"
-                      alt="profile image"
-                      className="transition-transform duration-500"
-                    />
-                  </figure>
-                  <div className="card-body space-y-3">
-                    <h5 className="card-title text-lg md:text-xl">
-                      About me👋🏼
-                    </h5>
-                    <p className="text-sm md:text-base">
-                      I’m a recent software engineering graduate with a strong
-                      passion for building impactful applications. Skilled in
-                      both full-stack and mobile development, I enjoy creating
-                      versatile and user-friendly solutions that bridge
-                      functionality and design. Eager to learn and adapt, I
-                      thrive on turning ideas into high-quality, scalable
-                      software.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="flex h-full justify-center">
+            <Image
+              width={250}
+              height={250}
+              src="/profile_image.jpg"
+              alt="profile image"
+              className="transition-transform duration-500 rounded-full m-16"
+            />
+          </div>
+
+          <div className="flex h-full flex-col w-1/2">
+            <h3 className=" text-left card-title text-lg md:text-2xl leading-relaxed">
+              About me
+            </h3>
+            <p className="w-fit text-sm md:text-lg leading-normal">
+              I’m a recent Computer Engineering graduate with a strong passion
+              for building impactful applications. I enjoy creating versatile,
+              user-friendly solutions that bridge functionality and design.
+              Eager to learn and adapt, I thrive on turning ideas into
+              high-quality, scalable software. Beyond my technical interests, I
+              also enjoy studying languages, such as Chinese, to broaden my
+              cultural and communication skills.
+            </p>
           </div>
         </motion.div>
 
-        {/* INFO CARDS */}
+        {/* INFO CARDS
         <motion.div
           className="flex flex-col gap-6 lg:gap-12"
           variants={containerVariants}
@@ -140,7 +134,7 @@ export default function AboutMe() {
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </div>
   );
