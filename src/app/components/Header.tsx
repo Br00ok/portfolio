@@ -1,14 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const themes = ["black", "corporate"];
 
+const sections = [
+  { id: "/", label: "Home" },
+  { id: "#aboutme", label: "About me" },
+  { id: "#experience", label: "Experience" },
+  { id: "#projects", label: "Projects" },
+];
+
 export default function Header() {
   const [theme, setTheme] = useState<string | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [actualPath, setActualPath] = useState("/");
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "black";
@@ -22,62 +27,68 @@ export default function Header() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      let found = "/";
+      for (const section of sections.slice(1)) {
+        const el = document.querySelector(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom > 80) {
+            found = section.id;
+            break;
+          }
+        }
+      }
+      setActualPath(found);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   if (!theme) return null;
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setActualPath("/");
+  };
 
   return (
     <header className="fixed flex justify-center items-center h-screen z-20 ml-25">
       <div className="h-full w-fit grid grid-cols-1 grid-rows-8 gap-4">
-        <div className="text-4xl font-extrabold flex justify-start items-center row-span-2">
-          {
-            // <span>
-            //   Bru
-            //   <br />
-            //   Gladiador
-            // </span>
-          }
-        </div>
+        <div className="text-4xl font-extrabold flex justify-start items-center row-span-2"></div>
         <div className="flex justify-start row-span-4 row-start-3">
           <div className="flex-col flex justify-center gap-8 text-3xl">
-            <Link
-              href="/"
-              className={
-                pathname === "/"
-                  ? "text-primary font-semibold"
-                  : "hover:text-primary"
-              }
-            >
-              Home
-            </Link>
-            <Link
-              href="/skills"
-              className={
-                pathname === "/skills"
-                  ? "text-primary font-semibold"
-                  : "hover:text-primary"
-              }
-            >
-              Skills
-            </Link>
-            <Link
-              href="/experience"
-              className={
-                pathname === "/experience"
-                  ? "text-primary font-semibold"
-                  : "hover:text-primary"
-              }
-            >
-              Experience
-            </Link>
-            <Link
-              href="/projects"
-              className={
-                pathname === "/projects"
-                  ? "text-primary font-semibold"
-                  : "hover:text-primary"
-              }
-            >
-              Projects
-            </Link>
+            {sections.map((section) =>
+              section.id === "/" ? (
+                <a
+                  key={section.id}
+                  href="/"
+                  className={
+                    actualPath === "/"
+                      ? "text-primary font-semibold"
+                      : "hover:text-primary"
+                  }
+                  onClick={handleHomeClick}
+                >
+                  {section.label}
+                </a>
+              ) : (
+                <Link
+                  key={section.id}
+                  href={section.id}
+                  className={
+                    actualPath === section.id
+                      ? "text-primary font-semibold"
+                      : "hover:text-primary"
+                  }
+                >
+                  {section.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
         <div className="flex items-center justify-start row-start-8">
@@ -88,169 +99,9 @@ export default function Header() {
             aria-label="LinkedIn Link"
           >
             <span className="icon-[tabler--brand-linkedin] size-10"></span>
-          </Link>{" "}
+          </Link>
         </div>
       </div>
-      {/* <nav className="navbar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
-        <div className="flex items-center justify-between w-full md:w-fit">
-          <Link
-            className="text-base-content flex items-center gap-2 text-lg sm:text-xl font-bold"
-            href="/"
-          >
-            Bru Gladiador
-          </Link>
-
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 text-base-content"
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? (
-              <span className="icon-[tabler--x] size-6"></span>
-            ) : (
-              <span className="icon-[tabler--menu-2] size-6"></span>
-            )}
-          </button>
-        </div>
-
-        {/* Desktop Links */}
-      {/* <div className="hidden md:flex md:items-center md:gap-6 font-medium text-base-content">
-          <Link
-            href="/"
-            className={
-              pathname === "/"
-                ? "text-primary font-semibold"
-                : "hover:text-primary"
-            }
-          >
-            Home
-          </Link>
-          <Link
-            href="/skills"
-            className={
-              pathname === "/skills"
-                ? "text-primary font-semibold"
-                : "hover:text-primary"
-            }
-          >
-            Skills
-          </Link>
-          <Link
-            href="/experience"
-            className={
-              pathname === "/experience"
-                ? "text-primary font-semibold"
-                : "hover:text-primary"
-            }
-          >
-            Experience
-          </Link>
-          <Link
-            href="/projects"
-            className={
-              pathname === "/projects"
-                ? "text-primary font-semibold"
-                : "hover:text-primary"
-            }
-          >
-            Projects
-          </Link>
-        </div> */}
-
-      {/* Theme Selector */}
-      {/* <div className="hidden md:flex items-center gap-2">
-          <label
-            htmlFor="theme-dropdown"
-            className="font-medium text-base text-base-content"
-          >
-            Theme:
-          </label>
-          <select
-            id="theme-dropdown"
-            className="select select-bordered select-sm"
-            value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-          >
-            {themes.map((t) => (
-              <option key={t} value={t}>
-                {t === "corporate" ? "Light" : "Dark"}
-              </option>
-            ))}
-          </select>
-        </div>
-      </nav> */}
-
-      {/* Mobile Menu */}
-      {/* {menuOpen && (
-        <div className="md:hidden bg-base-100 border-t border-base-content/20 px-4 py-3 flex flex-col gap-3 font-medium text-base-content">
-          <Link
-            href="/"
-            className={
-              pathname === "/"
-                ? "text-primary font-semibold"
-                : "hover:text-primary"
-            }
-            onClick={() => setMenuOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            href="/skills"
-            className={
-              pathname === "/skills"
-                ? "text-primary font-semibold"
-                : "hover:text-primary"
-            }
-            onClick={() => setMenuOpen(false)}
-          >
-            Skills
-          </Link>
-          <Link
-            href="/experience"
-            className={
-              pathname === "/experience"
-                ? "text-primary font-semibold"
-                : "hover:text-primary"
-            }
-            onClick={() => setMenuOpen(false)}
-          >
-            Experience
-          </Link>
-          <Link
-            href="/projects"
-            className={
-              pathname === "/projects"
-                ? "text-primary font-semibold"
-                : "hover:text-primary"
-            }
-            onClick={() => setMenuOpen(false)}
-          >
-            Projects
-          </Link>
-
-          {/* Mobile Theme Selector */}
-      {/* <div className="flex items-center gap-2 pt-2 border-t border-base-content/20">
-            <label
-              htmlFor="theme-dropdown-mobile"
-              className="font-medium text-sm"
-            >
-              Theme:
-            </label>
-            <select
-              id="theme-dropdown-mobile"
-              className="select select-bordered select-sm"
-              value={theme}
-              onChange={(e) => setTheme(e.target.value)}
-            >
-              {themes.map((t) => (
-                <option key={t} value={t}>
-                  {t === "corporate" ? "Light" : "Dark"}
-                </option>
-              ))}
-            </select>
-          </div> 
-        </div> */}
-      {/* )}  */}
     </header>
   );
 }

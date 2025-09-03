@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import AboutMe from "./components/AboutMe";
-import Skills from "./skills/page";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
 
 export default function Home() {
   const containerVariants = {
@@ -39,6 +40,7 @@ export default function Home() {
         >
           {/* HERO */}
           <motion.div
+            id="home"
             className="mx-auto flex max-w-7xl flex-col items-center gap-6 md:gap-8 px-4 text-center sm:px-6 lg:px-8"
             variants={itemVariants}
           >
@@ -98,7 +100,8 @@ export default function Home() {
               <AboutMe />
             </motion.div>
           )}
-          <Skills />
+          <Experience />
+          <Projects />
         </motion.div>
       </main>
     </div>
