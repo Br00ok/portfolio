@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import isMobile from "../hooks/isMobile";
 
 export default function AboutMe() {
   const itemVariants = {
@@ -17,20 +18,25 @@ export default function AboutMe() {
   return (
     <div
       id="aboutme"
-      className="h-screen w-full flex flex-col items-center justify-center bg-base-100"
+      className="min-h-screen w-full flex flex-col items-center justify-center bg-base-100"
     >
       <motion.div
-        className="w-full h-full px-6 md:px-16 py-12 flex flex-col items-center justify-center gap-12 bg-base-100"
+        className="w-full h-full px-6 md:px-16 py-8 flex flex-col items-center justify-center gap-12 bg-base-100"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
         <motion.div
-          className="w-full lg:w-fit h-full flex justify-center items-center"
+          className={`w-full flex ${
+            isMobile()
+              ? "flex-col items-center gap-12"
+              : "lg:w-fit h-full flex-row justify-center items-center"
+          }`}
           variants={itemVariants}
         >
-          <div className="w-1/4 flex flex-col h-full justify-center items-center m-8">
+          {/* Perfil */}
+          <div className="w-full lg:w-1/4 flex flex-col h-full justify-center items-center m-4 lg:m-8">
             <Image
               width={250}
               height={250}
@@ -38,11 +44,19 @@ export default function AboutMe() {
               alt="profile image"
               className="transition-transform duration-500 rounded-full"
             />
-            <div className="flex flex-col items-start mt-8">
-              <h2 className="text-left text-lg md:text-2xl leading-relaxed">
+            <div className="flex flex-col items-start mt-6 lg:mt-8">
+              <h2
+                className={`text-lg md:text-2xl leading-relaxed ${
+                  isMobile() ? "text-center w-full" : "text-left"
+                }`}
+              >
                 About Me
               </h2>
-              <p className="text-primary/60 w-full text-sm md:text-lg leading-normal">
+              <p
+                className={`text-primary/60 w-full text-sm md:text-lg leading-normal ${
+                  isMobile() ? "text-center w-full" : "text-left"
+                }`}
+              >
                 I’m a recent Computer Engineering graduate with a strong passion
                 for building impactful applications. I enjoy creating versatile,
                 user-friendly solutions that bridge functionality and design.
@@ -54,9 +68,15 @@ export default function AboutMe() {
             </div>
           </div>
 
-          <div className="m-12 divider divider-horizontal"></div>
+          {!isMobile() && (
+            <div className="m-12 divider divider-horizontal"></div>
+          )}
 
-          <div className="flex h-full flex-col w-1/2 gap-8 justify-center">
+          <div
+            className={`flex flex-col gap-8 justify-center ${
+              isMobile() ? "w-full" : "w-1/2 h-full"
+            }`}
+          >
             <div className="flex flex-col gap-4">
               <h3 className="text-left text-lg md:text-2xl leading-relaxed">
                 Hard Skills
@@ -101,6 +121,7 @@ export default function AboutMe() {
             </div>
           </div>
         </motion.div>
+
         <motion.a
           href="#experience"
           className="btn btn-text btn-md sm:btn-lg sm:w-auto"

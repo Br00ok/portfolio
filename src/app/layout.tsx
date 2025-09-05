@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import FlyonuiScript from "./components/FlyonuiScript";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,11 +36,10 @@ export default function RootLayout({
         ></link>
       </head>
       <body className="antialiased flex min-h-screen">
-        <div className="w-1/8 bg-base-100">
+        <div className="hidden sm:block sm:w-1/8 bg-base-100">
           <Header />
         </div>
-        <main className="w-7/8">{children}</main>
-        {/* <Footer /> */}
+        <main className="w-full sm:w-7/8">{children}</main>
         <FlyonuiScript />
       </body>
     </html>

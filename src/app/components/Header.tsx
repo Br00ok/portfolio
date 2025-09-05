@@ -14,6 +14,14 @@ const sections = [
 export default function Header() {
   const [theme, setTheme] = useState<string | null>(null);
   const [actualPath, setActualPath] = useState("/");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "black";
@@ -28,6 +36,8 @@ export default function Header() {
   }, [theme]);
 
   useEffect(() => {
+    if (isMobile) return;
+
     const handleScroll = () => {
       let found = "/";
       for (const section of sections.slice(1)) {
@@ -45,7 +55,7 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMobile]);
 
   if (!theme) return null;
 
@@ -56,52 +66,66 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed flex justify-center items-center h-screen z-20 ml-25">
-      <div className="h-full w-fit grid grid-cols-1 grid-rows-8 gap-4">
-        <div className="text-4xl font-extrabold flex justify-start items-center row-span-2"></div>
-        <div className="flex justify-start row-span-4 row-start-3">
-          <div className="flex-col flex justify-center gap-8 text-3xl">
-            {sections.map((section) =>
-              section.id === "/" ? (
-                <a
-                  key={section.id}
-                  href="/"
-                  className={
-                    actualPath === "/"
-                      ? "text-primary font-semibold"
-                      : "hover:text-primary"
-                  }
-                  onClick={handleHomeClick}
-                >
-                  {section.label}
-                </a>
-              ) : (
-                <Link
-                  key={section.id}
-                  href={section.id}
-                  className={
-                    actualPath === section.id
-                      ? "text-primary font-semibold"
-                      : "hover:text-primary"
-                  }
-                >
-                  {section.label}
-                </Link>
-              )
-            )}
+    <>
+      {!isMobile && (
+        <header className="fixed flex justify-center items-center h-screen z-20 ml-25">
+          <div className="h-full w-fit grid grid-cols-1 grid-rows-8 gap-4">
+            <div className="text-4xl font-extrabold flex justify-start items-center row-span-2"></div>
+            <div className="flex justify-start row-span-4 row-start-3">
+              <div className="flex-col flex justify-center gap-8 text-3xl">
+                {sections.map((section) =>
+                  section.id === "/" ? (
+                    <a
+                      key={section.id}
+                      href="/"
+                      className={
+                        actualPath === "/"
+                          ? "text-primary font-semibold"
+                          : "hover:text-primary"
+                      }
+                      onClick={handleHomeClick}
+                    >
+                      {section.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={section.id}
+                      href={section.id}
+                      className={
+                        actualPath === section.id
+                          ? "text-primary font-semibold"
+                          : "hover:text-primary"
+                      }
+                    >
+                      {section.label}
+                    </Link>
+                  )
+                )}
+              </div>
+            </div>
+            <div className="flex items-center justify-start row-start-8">
+              <Link
+                href="https://linkedin.com/in/brugladiadorllorella"
+                target="_blank"
+                className="link"
+                aria-label="LinkedIn Link"
+              >
+                <span className="icon-[tabler--brand-linkedin] size-10"></span>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="flex items-center justify-start row-start-8">
-          <Link
-            href="https://linkedin.com/in/brugladiadorllorella"
-            target="_blank"
-            className="link"
-            aria-label="LinkedIn Link"
-          >
-            <span className="icon-[tabler--brand-linkedin] size-10"></span>
-          </Link>
-        </div>
-      </div>
-    </header>
+        </header>
+      )}
+      {isMobile && (
+        <Link
+          href="https://linkedin.com/in/brugladiadorllorella"
+          target="_blank"
+          aria-label="LinkedIn Link"
+          className="fixed bottom-4 right-4 z-30 bg-transparent text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+        >
+          <span className="icon-[tabler--brand-linkedin] size-7"></span>
+        </Link>
+      )}
+    </>
   );
 }
