@@ -75,7 +75,7 @@ export default function Header() {
               <div className="flex-col flex justify-center gap-8 text-3xl">
                 {sections.map((section) =>
                   section.id === "/" ? (
-                    <a
+                    <Link
                       key={section.id}
                       href="/"
                       className={
@@ -86,7 +86,7 @@ export default function Header() {
                       onClick={handleHomeClick}
                     >
                       {section.label}
-                    </a>
+                    </Link>
                   ) : (
                     <Link
                       key={section.id}

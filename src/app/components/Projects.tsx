@@ -1,6 +1,7 @@
 "use client";
 
-import isMobile from "../hooks/isMobile";
+import Link from "next/link";
+import isMobile from "../hooks/useIsMobile";
 
 export default function Projects() {
   const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -32,14 +33,14 @@ export default function Projects() {
           technical contributions outside of formal professional experience.
         </p>
         <div className="flex gap-4 mt-4">
-          <a
+          <Link
             href="/"
             className="btn btn-text btn-sm md:btn-md"
             onClick={handleHomeClick}
           >
             Home
             <span className="icon-[tabler--arrow-up] size-4 sm:size-5 rtl:rotate-180"></span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

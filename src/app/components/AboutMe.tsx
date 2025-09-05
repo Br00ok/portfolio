@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import isMobile from "../hooks/isMobile";
+import isMobile from "../hooks/useIsMobile";
 
 export default function AboutMe() {
   const itemVariants = {

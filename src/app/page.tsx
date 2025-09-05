@@ -4,7 +4,7 @@ import AboutMe from "./components/AboutMe";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Link from "next/link";
-import isMobile from "./hooks/isMobile";
+import isMobile from "./hooks/useIsMobile";
 
 export default function Home() {
   const containerVariants = {

@@ -1,6 +1,6 @@
 "use client";
 
-import isMobile from "../hooks/isMobile";
+import isMobile from "../hooks/useIsMobile";
 
 export default function Experience() {
   return (
