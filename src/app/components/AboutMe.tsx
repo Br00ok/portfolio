@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import useIsMobile from "../hooks/useIsMobile";
 
 export default function AboutMe() {
   const itemVariants = {
@@ -14,7 +13,6 @@ export default function AboutMe() {
     hidden: {},
     visible: { transition: { staggerChildren: 0.2 } },
   };
-  const isMobile = useIsMobile();
 
   return (
     <div
@@ -29,14 +27,10 @@ export default function AboutMe() {
         variants={containerVariants}
       >
         <motion.div
-          className={`w-full flex ${
-            isMobile
-              ? "flex-col items-center gap-12"
-              : "lg:w-fit h-full flex-row justify-center items-center"
-          }`}
+          className="w-full flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 lg:gap-20"
           variants={itemVariants}
         >
-          <div className="w-full lg:w-1/4 flex flex-col h-full justify-center items-center m-4 lg:m-8">
+          <div className="w-full md:w-1/3 flex flex-col h-full justify-center items-center md:items-start text-center md:text-left m-4 lg:m-8">
             <Image
               width={250}
               height={250}
@@ -44,19 +38,9 @@ export default function AboutMe() {
               alt="profile image"
               className="transition-transform duration-500 rounded-full"
             />
-            <div className="flex flex-col items-start mt-6 lg:mt-8">
-              <h2
-                className={`text-lg md:text-2xl leading-relaxed ${
-                  isMobile ? "text-center w-full" : "text-left"
-                }`}
-              >
-                About Me
-              </h2>
-              <p
-                className={`text-primary/60 w-full text-sm md:text-lg leading-normal ${
-                  isMobile ? "text-center w-full" : "text-left"
-                }`}
-              >
+            <div className="flex flex-col items-center md:items-start mt-6 lg:mt-8">
+              <h2 className="text-lg md:text-2xl font-semibold">About Me</h2>
+              <p className="text-primary/60 text-sm md:text-lg leading-normal mt-4">
                 I’m a recent Computer Engineering graduate with a strong passion
                 for building impactful applications. I enjoy creating versatile,
                 user-friendly solutions that bridge functionality and design.
@@ -68,40 +52,34 @@ export default function AboutMe() {
             </div>
           </div>
 
-          {!isMobile && <div className="m-12 divider divider-horizontal"></div>}
+          <div className="hidden lg:flex divider divider-horizontal" />
 
-          <div
-            className={`flex flex-col gap-8 justify-center ${
-              isMobile ? "w-full" : "w-1/2 h-full"
-            }`}
-          >
+          <div className="w-full md:w-2/3 flex flex-col gap-12">
             <div className="flex flex-col gap-4">
-              <h3 className="text-left text-lg md:text-2xl leading-relaxed">
-                Hard Skills
-              </h3>
-              <p className="text-primary/60 w-fit text-sm md:text-lg leading-normal">
+              <h3 className="text-lg md:text-2xl font-semibold">Hard Skills</h3>
+              <p className="text-primary/60 text-sm md:text-lg leading-normal">
                 <span className="text-primary/80">Programming languages:</span>
                 <br />
                 JavaScript - TypeScript - HTML5 - CSS3 - Java - PHP - Python -
                 C/C++ - SQL
               </p>
-              <p className="text-primary/60 w-fit text-sm md:text-lg leading-normal">
+              <p className="text-primary/60 text-sm md:text-lg leading-normal">
                 <span className="text-primary/80">Frontend:</span>
                 <br />
                 React - Angular - Next.js - Tailwind CSS - Vite - WordPress -
                 Material UI
               </p>
-              <p className="text-primary/60 w-fit text-sm md:text-lg leading-normal">
+              <p className="text-primary/60 text-sm md:text-lg leading-normal">
                 <span className="text-primary/80">Backend:</span>
                 <br />
                 Spring Boot - Node.js - Express - REST APIs - GraphQL - Laravel
               </p>
-              <p className="text-primary/60 w-fit text-sm md:text-lg leading-normal">
+              <p className="text-primary/60 text-sm md:text-lg leading-normal">
                 <span className="text-primary/80">Databases:</span>
                 <br />
                 MySQL - MongoDB - PostgreSQL - Firebase - Sequelize ORM
               </p>
-              <p className="text-primary/60 w-fit text-sm md:text-lg leading-normal">
+              <p className="text-primary/60 text-sm md:text-lg leading-normal">
                 <span className="text-primary/80">Others:</span>
                 <br />
                 Git - GitHub - Office Suite - Agile - Scrum
@@ -109,10 +87,8 @@ export default function AboutMe() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <h3 className="text-left text-lg md:text-2xl leading-relaxed">
-                Soft Skills
-              </h3>
-              <p className="text-primary/60 w-fit text-sm md:text-lg leading-normal">
+              <h3 className="text-lg md:text-2xl font-semibold">Soft Skills</h3>
+              <p className="text-primary/60 text-sm md:text-lg leading-normal">
                 Communication - Attention to Detail - Teamwork - Problem Solving
                 - Curiosity - Adaptability - Responsibility
               </p>

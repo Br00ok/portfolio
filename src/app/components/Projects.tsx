@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import useIsMobile from "../hooks/useIsMobile";
 
 export default function Projects() {
   const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -9,24 +8,23 @@ export default function Projects() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const isMobile = useIsMobile();
-
   return (
     <section
-      className={`flex flex-col items-center justify-center bg-base-100 px-6 ${
-        isMobile ? "py-12 mb-8" : "min-h-screen py-24"
-      }`}
       id="projects"
+      className="flex flex-col items-center justify-center bg-base-100 px-6 py-12 md:py-24 md:min-h-screen mb-8 md:mb-0"
     >
       <div className="max-w-xl w-full flex flex-col items-center gap-8">
-        {!isMobile && (
-          <span className="icon-[tabler--code] text-primary/70 text-7xl mb-2"></span>
-        )}
+        {/* ICON ONLY ON DESKTOP/TABLET */}
+        <span className="hidden md:inline-block icon-[tabler--code] text-primary/70 text-6xl lg:text-7xl mb-2"></span>
+
+        {/* TITLE */}
         <h1 className="text-3xl md:text-5xl font-bold text-base-content text-center">
           Projects
         </h1>
-        <p className="text-base md:text-lg text-base-content/70 text-center">
-          This page is currently under construction 🚧
+
+        {/* DESCRIPTION */}
+        <p className="text-base md:text-lg text-base-content/70 text-center leading-relaxed">
+          This section is currently under construction 🚧
           <br />
           <br />
           Information about personal projects and collaborative initiatives will
@@ -34,6 +32,8 @@ export default function Projects() {
           examples of development work, demonstrating skills, creativity, and
           technical contributions outside of formal professional experience.
         </p>
+
+        {/* BUTTON */}
         <div className="flex gap-4 mt-4">
           <Link
             href="/"

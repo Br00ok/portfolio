@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html data-theme="light" lang="en" className="scroll-smooth">
       <head>
+        <title>Bru Gladiador</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link
@@ -36,10 +37,11 @@ export default function RootLayout({
         ></link>
       </head>
       <body className="antialiased flex min-h-screen">
-        <div className="hidden sm:block sm:w-1/8 bg-base-100">
+        <div className="hidden md:block md:w-1/6 bg-base-100">
           <Header />
         </div>
-        <main className="w-full sm:w-7/8">{children}</main>
+
+        <main className="w-full md:w-5/6">{children}</main>
         <FlyonuiScript />
       </body>
     </html>
