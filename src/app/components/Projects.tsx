@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import isMobile from "../hooks/useIsMobile";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Projects() {
   const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -9,15 +9,17 @@ export default function Projects() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const isMobile = useIsMobile();
+
   return (
     <section
       className={`flex flex-col items-center justify-center bg-base-100 px-6 ${
-        isMobile() ? "py-12 mb-8" : "min-h-screen py-24"
+        isMobile ? "py-12 mb-8" : "min-h-screen py-24"
       }`}
       id="projects"
     >
       <div className="max-w-xl w-full flex flex-col items-center gap-8">
-        {!isMobile() && (
+        {!isMobile && (
           <span className="icon-[tabler--code] text-primary/70 text-7xl mb-2"></span>
         )}
         <h1 className="text-3xl md:text-5xl font-bold text-base-content text-center">

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import isMobile from "../hooks/useIsMobile";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function AboutMe() {
   const itemVariants = {
@@ -14,6 +14,7 @@ export default function AboutMe() {
     hidden: {},
     visible: { transition: { staggerChildren: 0.2 } },
   };
+  const isMobile = useIsMobile();
 
   return (
     <div
@@ -29,13 +30,12 @@ export default function AboutMe() {
       >
         <motion.div
           className={`w-full flex ${
-            isMobile()
+            isMobile
               ? "flex-col items-center gap-12"
               : "lg:w-fit h-full flex-row justify-center items-center"
           }`}
           variants={itemVariants}
         >
-          {/* Perfil */}
           <div className="w-full lg:w-1/4 flex flex-col h-full justify-center items-center m-4 lg:m-8">
             <Image
               width={250}
@@ -47,14 +47,14 @@ export default function AboutMe() {
             <div className="flex flex-col items-start mt-6 lg:mt-8">
               <h2
                 className={`text-lg md:text-2xl leading-relaxed ${
-                  isMobile() ? "text-center w-full" : "text-left"
+                  isMobile ? "text-center w-full" : "text-left"
                 }`}
               >
                 About Me
               </h2>
               <p
                 className={`text-primary/60 w-full text-sm md:text-lg leading-normal ${
-                  isMobile() ? "text-center w-full" : "text-left"
+                  isMobile ? "text-center w-full" : "text-left"
                 }`}
               >
                 I’m a recent Computer Engineering graduate with a strong passion
@@ -68,13 +68,11 @@ export default function AboutMe() {
             </div>
           </div>
 
-          {!isMobile() && (
-            <div className="m-12 divider divider-horizontal"></div>
-          )}
+          {!isMobile && <div className="m-12 divider divider-horizontal"></div>}
 
           <div
             className={`flex flex-col gap-8 justify-center ${
-              isMobile() ? "w-full" : "w-1/2 h-full"
+              isMobile ? "w-full" : "w-1/2 h-full"
             }`}
           >
             <div className="flex flex-col gap-4">

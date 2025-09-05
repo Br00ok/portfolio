@@ -1,12 +1,13 @@
 "use client";
 
-import isMobile from "../hooks/useIsMobile";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Experience() {
+  const isMobile = useIsMobile();
   return (
     <section
       className={`flex flex-col items-center justify-center bg-base-100 px-6 ${
-        isMobile() ? "py-4" : "min-h-screen py-24"
+        isMobile ? "py-4" : "min-h-screen py-24"
       }`}
       id="experience"
     >
@@ -15,7 +16,7 @@ export default function Experience() {
           Professional Experience
         </h1>
 
-        {isMobile() ? (
+        {isMobile ? (
           <div className="flex flex-col gap-8 w-full">
             <div className="flex flex-col items-center gap-2">
               <time className="text-center font-bold text-lg">

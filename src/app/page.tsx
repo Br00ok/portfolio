@@ -4,7 +4,7 @@ import AboutMe from "./components/AboutMe";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Link from "next/link";
-import isMobile from "./hooks/useIsMobile";
+import useIsMobile from "./hooks/useIsMobile";
 
 export default function Home() {
   const containerVariants = {
@@ -20,25 +20,24 @@ export default function Home() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
-
+  const isMobile = useIsMobile();
   return (
     <div className="bg-base-100 scroll-smooth">
       <main className="min-h-screen scroll-smooth">
         <motion.div
           className={`flex h-full flex-col justify-between overflow-x-hidden ${
-            isMobile() ? "gap-0" : "gap-12 md:gap-24"
+            isMobile ? "gap-0" : "gap-12 md:gap-24"
           }`}
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          {/* HERO */}
           <motion.div
             id="home"
             className="mx-auto flex max-w-7xl flex-col items-center gap-6 md:gap-8 px-4 text-center sm:px-6 lg:px-8"
             variants={itemVariants}
           >
-            {isMobile() ? (
+            {isMobile ? (
               <div className="flex flex-col items-center gap-8 px-6 text-center">
                 <motion.h1
                   className="text-primary font-extrabold leading-tight text-4xl xs:text-5xl sm:text-6xl mt-8"
