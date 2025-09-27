@@ -1,21 +1,8 @@
 @import "tailwindcss";
-@plugin "flyonui" {
-  themes: black, corporate;
-}
-@import "flyonui/variants.css";
-@source "./node_modules/flyonui/flyonui.js";
-@plugin "@iconify/tailwind4";
-@plugin "flyonui/theme" {
-  name: "black";
-  default: true;
 
-  --color-primary: #ffffff;
-  --color-accent: #d30c7b;
-  --color-base-100: #050609;
-}
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffffa;
+  --foreground: #1c1e1c;
 }
 
 @theme inline {
@@ -27,21 +14,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1c1e1c;
+    --foreground: #fffffa;
   }
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: "Lexend", sans-serif;
-}
-
-html {
-  background-color: #1f1f2e;
-}
-
-[data-theme="corporate"] {
-  background-color: #e0f2ff;
+  font-family: Arial, Helvetica, sans-serif;
 }
