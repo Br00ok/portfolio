@@ -1,19 +1,17 @@
-"use client";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import FlyonuiScript from "./components/FlyonuiScript";
-import Header from "./components/Header";
+import { Inter } from "next/font/google";
+import { Providers } from "./providers";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export const metadata: Metadata = {
+  title: "Bru Gladiador",
+  description: "Bru Gladiador Portfolio",
+};
 
 export default function RootLayout({
   children,
@@ -21,28 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html data-theme="light" lang="en" className="scroll-smooth">
-      <head>
-        <title>Bru Gladiador</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        ></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
-          rel="stylesheet"
-        ></link>
-      </head>
-      <body className="antialiased flex min-h-screen">
-        <div className="hidden md:block md:w-1/6 bg-base-100">
-          <Header />
-        </div>
-
-        <main className="w-full md:w-5/6">{children}</main>
-        <FlyonuiScript />
+    <html lang="en" className={`dark ${inter.variable}`}>
+      <body className={"antialiased"}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

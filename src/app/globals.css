@@ -1,47 +1,48 @@
 @import "tailwindcss";
-@plugin "flyonui" {
-  themes: black, corporate;
-}
-@import "flyonui/variants.css";
-@source "./node_modules/flyonui/flyonui.js";
-@plugin "@iconify/tailwind4";
-@plugin "flyonui/theme" {
-  name: "black";
-  default: true;
-
-  --color-primary: #ffffff;
-  --color-accent: #d30c7b;
-  --color-base-100: #050609;
-}
+@plugin '../hero.ts';
+/* Note: You may need to change the path to fit your project structure */
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Lexend", sans-serif;
-}
-
 html {
-  background-color: #1f1f2e;
+  scroll-behavior: smooth;
 }
 
-[data-theme="corporate"] {
-  background-color: #e0f2ff;
+body {
+  background: transparent;
+  color: var(--foreground);
+  font-family: Inter, sans-serif;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-move 6s ease-in-out infinite;
 }
