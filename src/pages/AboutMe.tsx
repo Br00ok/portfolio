@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Avatar, Card, Checkbox, Chip } from "@heroui/react";
+import { Avatar, Card, Checkbox } from "@heroui/react";
 import Skills from "@/components/Skills";
 import NextSectionButton from "@/components/NextSectionButton";
 export default function AboutMe() {

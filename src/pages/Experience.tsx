@@ -1,4 +1,3 @@
-import { Card, CardBody, CardHeader, Divider, CardFooter } from "@heroui/react";
 import ExperienceCard from "@/components/ExperienceCard";
 import NextSectionButton from "@/components/NextSectionButton";
 export default function Experience() {
