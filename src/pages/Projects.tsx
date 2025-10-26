@@ -1,5 +1,4 @@
 import ProjectCard from "@/components/ProjectCard";
-process.loadEnvFile();
 
 export default function Projects() {
   return (

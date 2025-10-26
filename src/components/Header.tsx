@@ -6,7 +6,6 @@ import {
   Link,
 } from "@heroui/react";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
-process.loadEnvFile();
 
 export default function Header() {
   return (
