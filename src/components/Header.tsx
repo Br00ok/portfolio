@@ -18,7 +18,7 @@ export default function Header() {
             <p className="font-bold text-foreground text-2xl">Bru Gladiador</p>
           </Link>
         </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarContent className="hidden sm:flex gap-10" justify="center">
           <NavbarItem>
             <Link
               color="foreground"
@@ -59,7 +59,7 @@ export default function Header() {
           </NavbarItem>
           <NavbarItem className="lg:flex">
             <Link
-              href={process.env.LINKEDIN_URL!}
+              href={process.env.GITHUB_URL!}
               target="_blank"
               className="text-secondary"
             >

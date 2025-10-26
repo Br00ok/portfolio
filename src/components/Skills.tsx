@@ -83,7 +83,9 @@ export default function Skills({
           </Chip>
         ))
       ) : (
-        <p>No skills selected.</p>
+        <p className="text-center text-base-content/70 whitespace-nowrap">
+          No skills selected.
+        </p>
       )}
     </div>
   );

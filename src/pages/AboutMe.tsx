@@ -1,9 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Avatar, Button, Card, Checkbox, Chip } from "@heroui/react";
+import { Avatar, Card, Checkbox, Chip } from "@heroui/react";
 import Skills from "@/components/Skills";
-import Link from "next/link";
-import { IconArrowNarrowDown } from "@tabler/icons-react";
 import NextSectionButton from "@/components/NextSectionButton";
 export default function AboutMe() {
   const [lang, setLang] = useState(true);
@@ -17,13 +15,12 @@ export default function AboutMe() {
       <Card className="gap-10 p-5 w-3/4 h-full md:w-fit md:h-fit flex flex-col md:flex-row items-center justify-center backdrop-blur-2xl bg-background/35 shadow-lg shadow-black/20">
         <Avatar className="h-50 w-50" src="/profile_picture.jpg" />
         <p className="max-w-160">
-          I’m a recent Computer Engineering graduate with a strong passion for
-          building impactful applications. I enjoy creating versatile,
-          user-friendly solutions that bridge functionality and design. Eager to
-          learn and adapt, I thrive on turning ideas into high-quality, scalable
-          software. Beyond my technical interests, I also enjoy studying
-          languages, such as Chinese, to broaden my cultural and communication
-          skills.
+          I'm a recent Computer Engineering graduate passionate about building
+          impactful applications. I enjoy creating user-friendly solutions that
+          combine functionality with thoughtful design. I'm always eager to
+          learn and adapt, turning ideas into quality, scalable software. Beyond
+          coding, I study languages and practice music—hobbies that sharpen my
+          discipline, creativity, and cultural perspective.
         </p>
       </Card>
       <div className="flex flex-col justify-center items-center">

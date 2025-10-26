@@ -24,33 +24,36 @@ export default function Hero() {
           <TypewriterText text="A design-oriented developer with a passion for creating beautiful and functional software." />
         </div>
         <div className="flex gap-5">
-          <Button
-            color="primary"
-            startContent={<IconBrandLinkedin />}
-            variant="bordered"
-          >
-            <Link href={`${process.env.LINKEDIN_URL}`} target="_blank">
+          <Link href={`${process.env.LINKEDIN_URL}`} target="_blank">
+            <Button
+              color="primary"
+              startContent={<IconBrandLinkedin />}
+              variant="bordered"
+            >
               LinkedIn
-            </Link>
-          </Button>
-          <Button
-            color="primary"
-            startContent={<IconBrandGithub />}
-            variant="bordered"
-          >
-            <Link href={`${process.env.LINKEDIN_URL}`} target="_blank">
+            </Button>
+          </Link>
+
+          <Link href={`${process.env.GITHUB_URL}`} target="_blank">
+            <Button
+              color="primary"
+              startContent={<IconBrandGithub />}
+              variant="bordered"
+            >
               GitHub
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </div>
-      <Button
-        className="mt-auto mb-15 bg-linear-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-        radius="full"
-        endContent={<IconArrowNarrowDown />}
-      >
-        <Link href="#aboutme">About me</Link>
-      </Button>
+      <Link href="#aboutme">
+        <Button
+          className="mt-auto mb-15 bg-linear-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+          radius="full"
+          endContent={<IconArrowNarrowDown />}
+        >
+          About me
+        </Button>
+      </Link>
     </section>
   );
 }
