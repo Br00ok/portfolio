@@ -5,7 +5,6 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
 } from "@tabler/icons-react";
-process.loadEnvFile();
 import Link from "next/link";
 
 export default function Hero() {
