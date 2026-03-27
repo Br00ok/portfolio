@@ -19,13 +19,18 @@ export default function Main() {
     <main className="mt-10 flex h-fit w-2/5 flex-col gap-8">
       <section className="flex w-full items-center justify-between">
         <div className="flex w-fit flex-col gap-4">
-          <h1 className="text-7xl font-extrabold">
-            <TextAnimate animation="blurInUp" by="word">
-              Hi, I&apos;m Bru
+          <h1 className="text-5xl font-extrabold">
+            Hi, I&apos;m
+            <TextAnimate
+              className="text-7xl font-extrabold"
+              animation="blurInUp"
+              by="character"
+            >
+              Bru Gladiador
             </TextAnimate>
           </h1>
           <h2 className="text-4xl font-bold tracking-tighter">
-            <AuroraText>Software Developer</AuroraText>
+            <AuroraText>Software Engineer</AuroraText>
           </h2>
         </div>
         <div className="flex w-fit items-center justify-center">
@@ -43,11 +48,11 @@ export default function Main() {
             </CardTitle>
             <CardContent className="text-lg">
               <p>
-                Currently working as a Frontend Developer at a multinational
-                company service provider, I consider myself both a developer and
-                a designer of digital solutions for real-world challenges. I’m
-                always looking for ways to improve both professional processes
-                and everyday tasks, with the goal of enhancing people’s lives.
+                Currently working as a Frontend Developer, I consider myself
+                both a developer and a designer of digital solutions for
+                real-world challenges. I’m always looking for ways to improve
+                both professional processes and everyday tasks, with the goal of
+                enhancing people’s lives.
               </p>
             </CardContent>
           </CardHeader>
