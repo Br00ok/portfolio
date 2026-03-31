@@ -10,13 +10,12 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { AuroraText } from "@/components/ui/aurora-text"
-import { SkillsCard } from "@/components/skills-card"
-
-const projects = []
+import { SkillsMarquee } from "@/components/skills-marquee"
+import ProjectsGrid from "@/components/projects-grid"
 
 export default function Main() {
   return (
-    <main className="mt-10 flex h-fit w-2/5 flex-col gap-8">
+    <main className="mt-10 flex h-fit w-2/5 flex-col gap-10">
       <section className="flex w-full items-center justify-between">
         <div className="flex w-fit flex-col gap-4">
           <h1 className="text-5xl font-extrabold">
@@ -72,7 +71,7 @@ export default function Main() {
                     Frontend Developer
                   </p>
                 </div>
-                <p className="text-sm">November 2025 - Present</p>
+                <p className="text-lg">November 2025 - Present</p>
               </div>
               <div className="flex items-center justify-between">
                 <div>
@@ -81,7 +80,7 @@ export default function Main() {
                     Software Developer
                   </p>
                 </div>
-                <p className="text-sm">June 2024 - June 2025</p>
+                <p className="text-lg">June 2024 - June 2025</p>
               </div>
             </CardContent>
           </CardHeader>
@@ -101,23 +100,17 @@ export default function Main() {
                     Bachelor&apos;s Degree in Computer Science
                   </p>
                 </div>
-                <p className="text-sm">2020 - 2024</p>
+                <p className="text-lg">2020 - 2024</p>
               </div>
             </CardContent>
           </CardHeader>
         </Card>
       </section>
       <section className="flex w-full items-center justify-center">
-        <SkillsCard />
+        <SkillsMarquee />
       </section>
       <section className="mt-6 flex w-full flex-col items-center justify-center">
-        <h4 className="pb-6 text-4xl font-extrabold">My Projects</h4>
-        <div className="flex gap-4">
-          <Card>
-            <CardContent>drfg</CardContent>
-          </Card>
-          <Card></Card>
-        </div>
+        <ProjectsGrid />
       </section>
     </main>
   )
