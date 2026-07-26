@@ -1,12 +1,6 @@
 "use client"
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { IconBrandGithub, IconWorld } from "@tabler/icons-react"
 import Image from "next/image"
 
 // projects with title, description, image, link to github and link to live demo
@@ -32,30 +26,49 @@ const projects = [
 export default function ProjectsGrid() {
   return (
     <>
-      <h4 className="pb-8 text-4xl font-extrabold">My Projects</h4>
-      <div className="mb-8 grid grid-cols-2 gap-4">
+      <h4 className="pb-6 text-3xl font-extrabold sm:pb-8 sm:text-4xl">
+        My Projects
+      </h4>
+      <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
         {projects.map((project) => (
           <Card
             key={project.title}
-            className="w-full max-w-sm border-none p-0 shadow-none"
+            className="w-full max-w-none border-none p-0 shadow-none md:max-w-sm"
           >
-            <CardHeader className="border-b border-border p-4 [.border-b]:pb-4">
+            <CardHeader className="flex flex-row items-center justify-between border-b border-border p-4 [.border-b]:pb-4">
               <CardTitle>{project.title}</CardTitle>
+              <div className="flex items-center gap-2">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex rounded-full border border-border p-2 text-foreground transition-colors hover:bg-accent"
+                  aria-label={`Open ${project.title} GitHub repository`}
+                >
+                  <IconBrandGithub className="h-5 w-5" />
+                </a>
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex rounded-full border border-border p-2 text-foreground transition-colors hover:bg-accent"
+                  aria-label={`Open ${project.title} website`}
+                >
+                  <IconWorld className="h-5 w-5" />
+                </a>
+              </div>
             </CardHeader>
 
-            <CardContent className="px-4">
+            <CardContent className="px-4 pb-4">
               <Image
                 src={project.image}
                 alt={project.title}
                 width={300}
                 height={200}
-                className="mb-4 h-48 w-full rounded-xl object-cover"
+                className="mb-4 h-40 w-full rounded-xl object-cover sm:h-48"
               />
               {project.description}
             </CardContent>
-            <CardFooter className="border-t border-border p-4 [.border-t]:pt-4">
-              <Button className="w-full">Learn More</Button>
-            </CardFooter>
           </Card>
         ))}
       </div>

@@ -1,55 +1,46 @@
 import { TextAnimate } from "@/components/ui/text-animate"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { AuroraText } from "@/components/ui/aurora-text"
 import { SkillsMarquee } from "@/components/skills-marquee"
 import ProjectsGrid from "@/components/projects-grid"
 import { Badge } from "@/components/ui/badge"
-import { BadgeCheck } from "lucide-react"
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react"
 
 export default function Main() {
   return (
-    <main className="mt-10 flex h-fit w-2/5 flex-col gap-10">
-      <section className="flex w-full items-center justify-between">
-        <div className="flex w-fit flex-col gap-4">
-          <h1 className="text-5xl font-extrabold">
+    <main className="mx-auto mt-6 flex w-full max-w-2xl flex-col gap-8 px-4 py-4 sm:mt-10 sm:gap-10 sm:px-6 lg:max-w-3xl lg:px-0">
+      <section className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex w-full flex-col items-center text-center sm:items-start sm:text-left">
+          <h1 className="text-4xl leading-tight font-extrabold sm:text-5xl">
             Hi, I&apos;m
             <TextAnimate
-              className="text-7xl font-extrabold"
+              className="block text-5xl leading-tight font-extrabold sm:text-7xl"
               animation="blurInUp"
               by="character"
             >
               Bru Gladiador
             </TextAnimate>
           </h1>
-          <h2 className="text-4xl font-bold tracking-tighter">
+          <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">
             <AuroraText>Software Engineer</AuroraText>
           </h2>
         </div>
-        <div className="flex w-fit items-center justify-center">
-          <Avatar className={"h-50 w-50"}>
+        <div className="flex w-full items-center justify-center sm:w-fit sm:justify-center">
+          <Avatar className="h-32 w-32 sm:h-44 sm:w-44 lg:h-50 lg:w-50">
             <AvatarImage src="/assets/profile.jpg" />
             <AvatarFallback>BG</AvatarFallback>
           </Avatar>
         </div>
       </section>
-      <section className="flex w-full items-center justify-start gap-3">
+      <section className="flex w-full flex-wrap items-center justify-center gap-3 sm:justify-start">
         <a
           href="https://github.com/Br00ok"
           target="_blank"
           rel="noreferrer"
           className="inline-flex"
         >
-          <Badge className="flex cursor-pointer items-center gap-2 bg-purple-50 p-4 text-xl text-purple-700 hover:scale-105 hover:text-white! dark:bg-purple-950 dark:text-purple-300">
+          <Badge className="flex cursor-pointer items-center gap-2 bg-purple-50 p-3 text-lg text-purple-700 hover:scale-105 hover:text-white! sm:p-4 sm:text-xl dark:bg-purple-950 dark:text-purple-300">
             <span className="inline-flex h-8 w-8 items-center justify-center">
               <IconBrandGithub className="h-6 w-6" />
             </span>
@@ -62,7 +53,7 @@ export default function Main() {
           rel="noreferrer"
           className="inline-flex"
         >
-          <Badge className="flex cursor-pointer items-center gap-2 bg-blue-50 p-4 text-xl text-blue-700 hover:scale-105 hover:text-white! dark:bg-blue-950 dark:text-blue-300">
+          <Badge className="flex cursor-pointer items-center gap-2 bg-blue-50 p-3 text-lg text-blue-700 hover:scale-105 hover:text-white! sm:p-4 sm:text-xl dark:bg-blue-950 dark:text-blue-300">
             <span className="inline-flex h-8 w-8 items-center justify-center">
               <IconBrandLinkedin className="h-6 w-6" />
             </span>
@@ -96,7 +87,7 @@ export default function Main() {
               @WorkExperience
             </CardTitle>
             <CardContent className="text-lg">
-              <div className="flex items-start justify-between gap-4 pb-4">
+              <div className="flex flex-col gap-2 pb-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <div className="min-w-0 flex-1">
                   <p>Allianz Technology</p>
                   <p className="text-sm text-muted-foreground">
@@ -110,11 +101,11 @@ export default function Main() {
                     ensuring a consistent user interface.
                   </p>
                 </div>
-                <p className="shrink-0 text-base whitespace-nowrap">
+                <p className="shrink-0 text-sm whitespace-nowrap sm:text-base">
                   November 2025 - Present
                 </p>
               </div>
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <div className="min-w-0 flex-1">
                   <p>Doole Health</p>
                   <p className="text-sm text-muted-foreground">
@@ -128,7 +119,7 @@ export default function Main() {
                     responsive user experience.
                   </p>
                 </div>
-                <p className="shrink-0 text-base whitespace-nowrap">
+                <p className="shrink-0 text-sm whitespace-nowrap sm:text-base">
                   June 2024 - June 2025
                 </p>
               </div>
@@ -142,15 +133,15 @@ export default function Main() {
             <CardTitle className="text-2xl text-muted-foreground">
               @Education
             </CardTitle>
-            <CardContent className="text-lg">
-              <div className="flex items-center justify-between">
+            <CardContent className="text-base sm:text-lg">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p>Universitat Pompeu Fabra</p>
                   <p className="text-sm text-muted-foreground">
                     Bachelor&apos;s Degree in Computer Science
                   </p>
                 </div>
-                <p className="text-lg">2020 - 2024</p>
+                <p className="text-sm sm:text-lg">2020 - 2024</p>
               </div>
             </CardContent>
           </CardHeader>
