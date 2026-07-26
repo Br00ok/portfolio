@@ -3,45 +3,37 @@ import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { MagicCard } from "@/components/ui/magic-card"
-import { useTheme } from "next-themes"
+import Image from "next/image"
 
 // projects with title, description, image, link to github and link to live demo
 const projects = [
   {
-    title: "Project 1",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "https://via.placeholder.com/300x200",
-    github: "",
-    demo: "",
+    title: "Weather App",
+    description:
+      "A simple weather application that displays current conditions and forecasts oriented towards mobile user experience.",
+    image: "/assets/weather-app.png",
+    github: "https://github.com/Br00ok/weather-app",
+    demo: "https://bgl-weather-app.vercel.app/",
   },
   {
-    title: "Project 2",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "https://via.placeholder.com/300x200",
-    github: "",
-    demo: "",
-  },
-  {
-    title: "Project 3",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "https://via.placeholder.com/300x200",
-    github: "",
-    demo: "",
+    title: "Pizza Dough Calculator",
+    description:
+      "A dough calculator that helps bakers determine the right amount of ingredients needed for their recipes.",
+    image: "/assets/dough-calculator.png",
+    github: "https://github.com/Br00ok/dough-calculator",
+    demo: "https://bgl-dough-calculator.vercel.app/",
   },
 ]
 
 export default function ProjectsGrid() {
-  const { theme } = useTheme()
   return (
     <>
       <h4 className="pb-8 text-4xl font-extrabold">My Projects</h4>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="mb-8 grid grid-cols-2 gap-4">
         {projects.map((project) => (
           <Card
             key={project.title}
@@ -50,9 +42,19 @@ export default function ProjectsGrid() {
             <CardHeader className="border-b border-border p-4 [.border-b]:pb-4">
               <CardTitle>{project.title}</CardTitle>
             </CardHeader>
-            <CardContent className="p-4">{project.description}</CardContent>
+
+            <CardContent className="px-4">
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={300}
+                height={200}
+                className="mb-4 h-48 w-full rounded-xl object-cover"
+              />
+              {project.description}
+            </CardContent>
             <CardFooter className="border-t border-border p-4 [.border-t]:pt-4">
-              <Button className="w-full">Sign In</Button>
+              <Button className="w-full">Learn More</Button>
             </CardFooter>
           </Card>
         ))}

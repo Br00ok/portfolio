@@ -12,6 +12,9 @@ import { Button } from "@/components/ui/button"
 import { AuroraText } from "@/components/ui/aurora-text"
 import { SkillsMarquee } from "@/components/skills-marquee"
 import ProjectsGrid from "@/components/projects-grid"
+import { Badge } from "@/components/ui/badge"
+import { BadgeCheck } from "lucide-react"
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react"
 
 export default function Main() {
   return (
@@ -39,6 +42,35 @@ export default function Main() {
           </Avatar>
         </div>
       </section>
+      <section className="flex w-full items-center justify-start gap-3">
+        <a
+          href="https://github.com/Br00ok"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex"
+        >
+          <Badge className="flex cursor-pointer items-center gap-2 bg-purple-50 p-4 text-xl text-purple-700 hover:scale-105 hover:text-white! dark:bg-purple-950 dark:text-purple-300">
+            <span className="inline-flex h-8 w-8 items-center justify-center">
+              <IconBrandGithub className="h-6 w-6" />
+            </span>
+            GitHub
+          </Badge>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/brugladiadorllorella"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex"
+        >
+          <Badge className="flex cursor-pointer items-center gap-2 bg-blue-50 p-4 text-xl text-blue-700 hover:scale-105 hover:text-white! dark:bg-blue-950 dark:text-blue-300">
+            <span className="inline-flex h-8 w-8 items-center justify-center">
+              <IconBrandLinkedin className="h-6 w-6" />
+            </span>
+            LinkedIn
+          </Badge>
+        </a>
+      </section>
+
       <section className="flex w-full items-center justify-center">
         <Card className="w-full bg-card/80">
           <CardHeader>
@@ -64,23 +96,41 @@ export default function Main() {
               @WorkExperience
             </CardTitle>
             <CardContent className="text-lg">
-              <div className="flex items-center justify-between pb-2">
-                <div>
+              <div className="flex items-start justify-between gap-4 pb-4">
+                <div className="min-w-0 flex-1">
                   <p>Allianz Technology</p>
                   <p className="text-sm text-muted-foreground">
                     Frontend Developer
                   </p>
+                  <p className="pt-2 pb-2 text-sm">
+                    Contributing to the migration of a multinational
+                    company&apos;s insurance web portal to Angular 20,
+                    supporting the modernization of the frontend architecture,
+                    implementing new features with UI component libraries, and
+                    ensuring a consistent user interface.
+                  </p>
                 </div>
-                <p className="text-lg">November 2025 - Present</p>
+                <p className="shrink-0 text-base whitespace-nowrap">
+                  November 2025 - Present
+                </p>
               </div>
-              <div className="flex items-center justify-between">
-                <div>
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0 flex-1">
                   <p>Doole Health</p>
                   <p className="text-sm text-muted-foreground">
                     Software Developer
                   </p>
+                  <p className="pt-2 pb-2 text-sm">
+                    Improved backend reliability through automated testing in
+                    PHP (Laravel). Conducted QA testing with TestRail to
+                    identify and document issues. Enhanced mobile and tablet
+                    applications using Ionic and Angular to deliver a better
+                    responsive user experience.
+                  </p>
                 </div>
-                <p className="text-lg">June 2024 - June 2025</p>
+                <p className="shrink-0 text-base whitespace-nowrap">
+                  June 2024 - June 2025
+                </p>
               </div>
             </CardContent>
           </CardHeader>
