@@ -36,8 +36,8 @@ export default function Main() {
           </h2>
         </div>
         <div className="flex w-fit items-center justify-center">
-          <Avatar className={"h-40 w-40"}>
-            <AvatarImage src="https://github.com/shadcn.png" />
+          <Avatar className={"h-50 w-50"}>
+            <AvatarImage src="/assets/profile.jpg" />
             <AvatarFallback>BG</AvatarFallback>
           </Avatar>
         </div>
