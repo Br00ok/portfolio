@@ -155,6 +155,9 @@ export default function Main() {
         </Card>
       </section>
       <section className="flex w-full items-center justify-center">
+        <SkillsMarquee />
+      </section>
+      <section className="flex w-full items-center justify-center">
         <Card className="w-full bg-card/80">
           <CardHeader className="flex flex-col gap-8">
             <div className="h-full w-full">
@@ -230,9 +233,6 @@ export default function Main() {
             </div>
           </CardHeader>
         </Card>
-      </section>
-      <section className="flex w-full items-center justify-center">
-        <SkillsMarquee />
       </section>
       <section className="mt-6 flex w-full flex-col items-center justify-center">
         <ProjectsGrid />
