@@ -21,6 +21,14 @@ const projects = [
     github: "https://github.com/Br00ok/dough-calculator",
     demo: "https://bgl-dough-calculator.vercel.app/",
   },
+  {
+    title: "Portfolio Project",
+    description:
+      "The first project of my collection, a portofolio website to show my skills and projects.",
+    image: "/assets/portfolio.png",
+    github: "https://github.com/Br00ok/portfolio",
+    demo: "https://bglportfolio.vercel.app/",
+  },
 ]
 
 export default function ProjectsGrid() {
