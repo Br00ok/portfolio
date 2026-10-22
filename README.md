@@ -7,7 +7,7 @@
 ## 📌 What's inside?
 
 - **About me:** an introduction and an overview of my approach to frontend development.
-- **Professional experience:** my experience at Allianz Technology and Doole Health, including responsibilities and technologies used.
+- **Professional experience:** my experience in real software developer positions, including responsibilities and technologies used.
 - **Skills:** technologies and tools displayed in an animated marquee.
 - **Education and languages:** academic background, courses, and languages.
 - **Projects:** cards featuring a description, an image, and links to the source code and live demos:
