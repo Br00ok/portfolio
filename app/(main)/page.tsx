@@ -6,10 +6,12 @@ import { SkillsMarquee } from "@/components/skills-marquee"
 import ProjectsGrid from "@/components/projects-grid"
 import { Badge } from "@/components/ui/badge"
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react"
+import { FloatingDarkMode } from "@/components/floating-dark-mode"
 
 export default function Main() {
   return (
     <main className="mx-auto mt-6 flex w-full max-w-2xl flex-col gap-8 px-4 py-4 sm:mt-10 sm:gap-10 sm:px-6 lg:max-w-3xl lg:px-0">
+      <FloatingDarkMode />
       <section className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex w-full flex-col items-center text-center sm:items-start sm:text-left">
           <h1 className="text-4xl leading-tight font-extrabold sm:text-5xl">
@@ -90,15 +92,19 @@ export default function Main() {
               <div className="flex flex-col gap-2 pb-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <div className="min-w-0 flex-1">
                   <div className="mt-4 flex justify-between">
-                    <p>Allianz Technology</p>
-                    <p className="text-sm sm:text-base">
-                      November 2025 - Present
-                    </p>
+                    <i>
+                      <p className="mb-4 text-xl text-muted-foreground">
+                        Frontend Developer | Allianz Technology
+                      </p>
+                    </i>
+                    <i>
+                      <p className="text-sm sm:text-base">
+                        November 2025 - Present
+                      </p>
+                    </i>
                   </div>
-                  <p className="mt-4 text-muted-foreground">
-                    Frontend Developer
-                  </p>
-                  <p className="pt-2 pb-2 text-sm">
+
+                  <p className="text-md pt-2 pb-2">
                     Successfully contributed to the migration of 10+ legacy
                     AngularJS applications to a modern Angular stack, while
                     establishing robust testing practices that consistently
@@ -118,28 +124,41 @@ export default function Main() {
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <div className="min-w-0 flex-1">
                   <div className="mt-4 flex justify-between">
-                    <p>Doole Health</p>
-                    <p className="text-sm sm:text-base">
-                      June 2024 - June 2025
-                    </p>
+                    <i>
+                      <p className="mb-4 text-xl text-muted-foreground">
+                        Frontend and Mobile Developer | Doole Health
+                      </p>
+                    </i>
+                    <i>
+                      <p className="text-sm sm:text-base">
+                        June 2024 - October 2024
+                      </p>
+                    </i>
                   </div>
-                  <p className="mt-4 text-muted-foreground">
-                    Frontend and Mobile Developer
-                  </p>
-                  <p className="pt-2 pb-2 text-sm">
+                  <p className="text-md pt-2 pb-2">
                     Adapted Doole Health’s web interfaces for mobile and tablet
                     devices, transforming desktop layouts into responsive,
                     device-optimised experiences.<br></br>
                   </p>
-                  <p className="pt-2 pb-2 text-sm">
+                  <p className="pt-2 pb-6 text-sm">
                     <strong>Tech Stack:</strong> Angular, Ionic, TypeScript,
                     HTML5, CSS3/SCSS, PHP, Laravel, REST APIs, Git, GitHub,
                     Agile/Scrum
                   </p>
-                  <p className="mt-4 text-muted-foreground">
-                    Backend Developer
-                  </p>
-                  <p className="pt-2 pb-2 text-sm">
+
+                  <div className="mt-4 flex justify-between">
+                    <i>
+                      <p className="mb-4 text-xl text-muted-foreground">
+                        Backend Developer | Doole Health
+                      </p>
+                    </i>
+                    <i>
+                      <p className="text-sm sm:text-base">
+                        November 2024 - June 2025
+                      </p>
+                    </i>
+                  </div>
+                  <p className="text-md pt-2 pb-2">
                     Built and maintained backend services for Doole Health’s
                     digital health platform, focusing on reliable server-side
                     logic, automated testing, and structured QA.<br></br>
